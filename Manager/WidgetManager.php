@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Manager;
+namespace Volleyball\Bundle\CoreBundle\Manager;
 
 use \Symfony\Component\DependencyInjection\ContainerInterface;
 use \Doctrine\Common\Collections\ArrayCollection;
@@ -29,9 +29,9 @@ class WidgetManager
     
     /**
      * Add widget
-     * @param \Volleyball\Bundle\UtilityBundle\Widget\DashbaordWidget $widget
+     * @param \Volleyball\Bundle\CoreBundle\Widget\DashbaordWidget $widget
      */
-    public function addWidget(\Volleyball\Bundle\UtilityBundle\Widget\DashboardWidget $widget)
+    public function addWidget(\Volleyball\Bundle\CoreBundle\Widget\DashboardWidget $widget)
     {
         $this->widgets->add($widget);
     }

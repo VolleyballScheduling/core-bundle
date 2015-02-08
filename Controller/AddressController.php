@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Controller;
+namespace Volleyball\Bundle\CoreBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -8,23 +8,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 
-use Volleyball\Bundle\UtilityBundle\Entity\Address;
-use Volleyball\Bundle\UtilityBundle\Form\Type\AddressType;
+use Volleyball\Bundle\CoreBundle\Entity\Address;
+use Volleyball\Bundle\CoreBundle\Form\Type\AddressType;
 
 /**
  * @Route("/addresses")
  */
-class AddressController extends UtilityController
+class AddressController extends CoreController
 {
     /**
      * @Route("/", name="volleyball_address_index")
-     * @Template("VolleyballUtilityBundle:Address:index.html.twig")
+     * @Template("VolleyballCoreBundle:Address:index.html.twig")
      */
     public function indexAction(Request $request)
     {
         // get route name/params to decypher data to delimit by
         $query = $this->get('doctrine')
-            ->getRepository('VolleyballUtilityBundle:Address')
+            ->getRepository('VolleyballCoreBundle:Address')
             ->createQueryBuilder('l')
             ->orderBy('l.updated, l.name', 'ASC');
 
@@ -40,13 +40,13 @@ class AddressController extends UtilityController
 
     /**
      * @Route("/{slug}", name="volleyball_address_show")
-     * @Template("VolleyballUtilityBundle:Address:show.html.twig")
+     * @Template("VolleyballCoreBundle:Address:show.html.twig")
      */
     public function showAction(Request $request)
     {
         $slug = $request->getParameter('slug');
         $address = $this->getDoctrine()
-            ->getRepository('VolleyballUtilityBundle:Address')
+            ->getRepository('VolleyballCoreBundle:Address')
             ->findOneBySlug($slug);
 
         if (!$address) {
@@ -63,7 +63,7 @@ class AddressController extends UtilityController
 
     /**
      * @Route("/new", name="volleyball_address_new")
-     * @Template("VolleyballUtilityBundle:Address:new.html.twig")
+     * @Template("VolleyballCoreBundle:Address:new.html.twig")
      */
     public function newAction(Request $request)
     {
@@ -83,7 +83,7 @@ class AddressController extends UtilityController
                 );
 
                 return $this->render(
-                    'VolleyballUtilityBundle:Address:show.html.twig',
+                    'VolleyballCoreBundle:Address:show.html.twig',
                     array(
                         'address' => $address
                     )

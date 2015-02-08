@@ -1,7 +1,7 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Menu;
+namespace Volleyball\Bundle\CoreBundle\Menu;
 
-use Volleyball\Bundle\UtilityBundle\Menu\MenuBuilder;
+use Volleyball\Bundle\CoreBundle\Menu\MenuBuilder;
 
 class AdminMenuBuilder extends MenuBuilder
 {

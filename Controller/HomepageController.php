@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Controller;
+namespace Volleyball\Bundle\CoreBundle\Controller;
 
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -11,7 +11,7 @@ use \Sylius\Bundle\ResourceBundle\ExpressionLanguage\ExpressionLanguage;
 
 use \Volleyball\Bundle\ResourceBundle\Form\Type\ContactFormType;
 
-class HomepageController extends \Volleyball\Bundle\UtilityBundle\Controller\UtilityController
+class HomepageController extends \Volleyball\Bundle\CoreBundle\Controller\CoreController
 {
     public function __construct()
     {

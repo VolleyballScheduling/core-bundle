@@ -1,17 +1,17 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Entity;
+namespace Volleyball\Bundle\CoreBundle\Entity;
 
 use \Doctrine\ORM\Mapping as ORM;
 use \Gedmo\Mapping\Annotation as Gedmo;
 use \Symfony\Component\Validator\Constraints as Assert;
 use \Doctrine\Common\Collections\ArrayCollection;
 
-use \Volleyball\Bundle\UtilityBundle\Traits\EntityBootstrapTrait;
-use \Volleyball\Bundle\UtilityBundle\Traits\SluggableTrait;
-use \Volleyball\Bundle\UtilityBundle\Traits\TimestampableTrait;
+use \Volleyball\Bundle\CoreBundle\Traits\EntityBootstrapTrait;
+use \Volleyball\Bundle\CoreBundle\Traits\SluggableTrait;
+use \Volleyball\Bundle\CoreBundle\Traits\TimestampableTrait;
 
 /**
-* @ORM\Entity(repositoryClass="Volleyball\Bundle\UtilityBundle\Repository\WidgetRepository")
+* @ORM\Entity(repositoryClass="Volleyball\Bundle\CoreBundle\Repository\WidgetRepository")
 * @ORM\Table(name="widget")
 */
 class Widget
@@ -79,7 +79,7 @@ class Widget
     /**
      * Set name
      * @param string $name
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function setName($name)
     {
@@ -104,7 +104,7 @@ class Widget
     /**
      * Set label
      * @param string|null $label
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function setLabel($label = null)
     {
@@ -125,7 +125,7 @@ class Widget
     /**
      * Set controller
      * @param string $controller
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      * @throws \Exception
      */
     public function setController($controller)
@@ -151,7 +151,7 @@ class Widget
     /**
      * Set roles
      * @param array $roles
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function setRoles(array $roles)
     {
@@ -163,7 +163,7 @@ class Widget
     /**
      * Add role
      * @param string $role
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function addRole($role)
     {
@@ -175,7 +175,7 @@ class Widget
     /**
      * Remove role
      * @param string $role
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function removeRole($role)
     {
@@ -206,7 +206,7 @@ class Widget
     /**
      * Set template
      * @param string $template
-     * @return \Volleyball\Bundle\UtilityBundle\Entity\Widget
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
     public function setTemplate($template)
     {

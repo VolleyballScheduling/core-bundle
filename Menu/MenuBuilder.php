@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Menu;
+namespace Volleyball\Bundle\CoreBundle\Menu;
 
 use \Knp\Menu\FactoryInterface;
 use \Symfony\Component\HttpFoundation\Request;
@@ -7,7 +7,7 @@ use \Symfony\Component\Translation\TranslatorInterface;
 use \Symfony\Component\Security\Core\SecurityContextInterface;
 use \Symfony\Component\ExpressionLanguage\Expression;
 
-use Volleyball\Bundle\UtilityBundle\Menu\BaseBuilder;
+use Volleyball\Bundle\CoreBundle\Menu\BaseBuilder;
 
 class MenuBuilder extends BaseBuilder
 {

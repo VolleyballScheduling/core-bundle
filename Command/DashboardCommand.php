@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Command;
+namespace Volleyball\Bundle\CoreBundle\Command;
 
 class DashboardCommand extends \Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand
 {

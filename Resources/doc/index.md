@@ -1,5 +1,5 @@
 ### Volleyball
-## Utility Bundle
+## core Bundle
 
 - Controllers
 - Documents

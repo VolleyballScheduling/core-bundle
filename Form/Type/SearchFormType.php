@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\PasselBundle\Form\Type;
+namespace Volleyball\Bundle\CoreBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

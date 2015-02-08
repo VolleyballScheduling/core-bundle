@@ -1,11 +1,11 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Controller;
+namespace Volleyball\Bundle\CoreBundle\Controller;
 
 use \Symfony\Component\HttpFoundation\Request;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DashboardController extends \Volleyball\Bundle\UtilityBundle\Controller\UtilityController
+class DashboardController extends \Volleyball\Bundle\CoreBundle\Controller\CoreController
 {
     /**
      * @Route("/dashboard", name="dashboard")
@@ -15,7 +15,7 @@ class DashboardController extends \Volleyball\Bundle\UtilityBundle\Controller\Ut
     public function dashboardAction(Request $request)
     {
         if (!$this->securityContext->isGranted('ROLE_USER')) {
-            return $this->forward('VolleyballUtilityBundle:Homepage:index');
+            return $this->forward('VolleyballCoreBundle:Homepage:index');
         }
         
         $widgets = $this

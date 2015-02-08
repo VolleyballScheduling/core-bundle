@@ -1,20 +1,20 @@
 parameters:
-    volleyball.listener.utility.class: Volleyball\Bundle\UtilityBundle\Listener\UtilityListener
+    volleyball.listener.core.class: Volleyball\Bundle\CoreBundle\Listener\UtilityListener
     
-    volleyball.menu.builder.class: Volleyball\Bundle\UtilityBundle\Menu\MenuBuilder
+    volleyball.menu.builder.class: Volleyball\Bundle\CoreBundle\Menu\MenuBuilder
     volleyball.menu.main.class: Knp\Menu\MenuItem
     volleyball.menu.nonauth.class: Knp\Menu\MenuItem
-    volleyball.menu.voter.request.class: Volleyball\Bundle\UtilityBundle\Menu\RequestVoter
+    volleyball.menu.voter.request.class: Volleyball\Bundle\CoreBundle\Menu\RequestVoter
     
-    volleyball.inflector.class: Volleyball\Bundle\UtilityBundle\Inflector\Inflector
+    volleyball.inflector.class: Volleyball\Bundle\CoreBundle\Inflector\Inflector
     
-    volleyball.controller.utility.class: Volleyball\Bundle\UtilityBundle\Controller\UtilityController
+    volleyball.controller.core.class: Volleyball\Bundle\CoreBundle\Controller\UtilityController
     
-    volleyball.dashboard.widget_manager.class: Volleyball\Bundle\UtilityBundle\Manager\WidgetManager
+    volleyball.dashboard.widget_manager.class: Volleyball\Bundle\CoreBundle\Manager\WidgetManager
         
 services:
-    volleyball.listener.utility:
-        class: %volleyball.listener.utility.class%
+    volleyball.listener.core:
+        class: %volleyball.listener.core.class%
         tags: [{ name: kernel.event_listener, event: kernel.request, method: onKernelRequest }]
         arguments: [ @service_container ]
     
@@ -43,8 +43,8 @@ services:
     volleyball.inflector: 
         class: %volleyball.inflector.class%
     
-    volleyball.controller.utility:
-        class: "%volleyball.controller.utility.class%"
+    volleyball.controller.core:
+        class: "%volleyball.controller.core.class%"
         arguments: [ "@sylius.controller.configuration_factory" ]
 
     volleyball.dashboard.widget_manager:

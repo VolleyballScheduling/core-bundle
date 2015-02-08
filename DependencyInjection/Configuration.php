@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\DependencyInjection;
+namespace Volleyball\Bundle\CoreBundle\DependencyInjection;
 
 use \Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use \Symfony\Component\Config\Definition\ConfigurationInterface;

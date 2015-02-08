@@ -1,52 +1,44 @@
-#Volleyball - summercamp scheduling system
-## Utility Bundle
-This is a bundle utilizing the utility component of the Volleyball Scheduling system.
+Installation
+============
 
-###Controllers
-- AddressController
-- HomepageController
-- UtilityController
+Step 1: Download the Bundle
+---------------------------
 
-###Entities
-- Address
-- Carousel
-- CarouselItem
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
 
-###Form Types
-- AddressFormType
-- CarouselFormType
-- CarouselItemFormType
-- EntityToIdentifierType
+```bash
+$ composer require VolleyballScheduling/CoreBundle "~1"
+```
 
-###Menu Builders
-- AdminMenuBuilder
-- AttendeeMenuBuilder
-- BaseBuilder
-- FacultyMenuBuilder
-- LeaderMenuBuilder
-- MenuBuilder
+This command requires you to have Composer installed globally, as explained
+in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
 
-###Routes
-Name | Path | Parameters
---- | --- | ---
-dashboard | /dashboard |
-homepage | / | 
-volleyball_about | /about | 
-volleyball_address_edit | /addresses/{slug}/edit | Address.slug
-volleyball_address_show | /addresses/{slug} | Address.slug
-volleyball_contact | /contact | 
-volleyball_help | /help | 
+Step 2: Enable the Bundle
+-------------------------
 
-###Services
+Then, enable the bundle by adding the following line in the `app/AppKernel.php`
+file of your project:
 
+```php
+<?php
+// app/AppKernel.php
 
-###Traits
-- BlameableTrait
-- EntityBootstrapTrait
-- GeolocatableTrait
-- SluggableTrait
-- TimestampableTrait
-- TranslatableTrait
+// ...
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
 
-###Voters
-- RequestVoter
+            new \Volleyball\Bundle\CoreBundle\VolleyballCoreBundle(),
+        );
+
+        // ...
+    }
+
+    // ...
+}
+```

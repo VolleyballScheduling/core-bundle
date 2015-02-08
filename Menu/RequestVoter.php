@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Menu;
+namespace Volleyball\Bundle\CoreBundle\Menu;
  
 use Knp\Menu\ItemInterface;
 use Knp\Menu\Matcher\Voter\VoterInterface;
@@ -17,15 +17,14 @@ class RequestVoter implements VoterInterface
  
     public function matchItem(ItemInterface $item)
     {
-    	if ($item->getUri() === $this->container->get('request')->getRequestUri()) {
-    		
+        if ($item->getUri() === $this->container->get('request')->getRequestUri()) {
+
             return true;
         } else if($item->getUri() !== '/' && (substr($this->container->get('request')->getRequestUri(), 0, strlen($item->getUri())) === $item->getUri())) {
-        	
+
             return true;
-    	}
+        }
         
         return null;
     }
-    
 }

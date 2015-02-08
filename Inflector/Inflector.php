@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Inflector;
+namespace Volleyball\Bundle\CoreBundle\Inflector;
 
 class Inflector
 {

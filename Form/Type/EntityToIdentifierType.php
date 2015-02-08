@@ -1,8 +1,8 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Form\Type;
+namespace Volleyball\Bundle\CoreBundle\Form\Type;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Volleyball\Bundle\UtilityBundle\Form\DataTransformer\EntityToIdentifierTransformer;
+use Volleyball\Bundle\CoreBundle\Form\DataTransformer\EntityToIdentifierTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

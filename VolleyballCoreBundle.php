@@ -1,13 +1,13 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle;
+namespace Volleyball\Bundle\CoreBundle;
 
 use \Symfony\Component\DependencyInjection\ContainerBuilder;
 use \Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use \Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
-use \Volleyball\Bundle\UtilityBundle\DependencyInjection\Compiler\ObjectToIdentifierServicePass;
+use \Volleyball\Bundle\CoreBundle\DependencyInjection\Compiler\ObjectToIdentifierServicePass;
 
-class VolleyballUtilityBundle extends AbstractResourceBundle
+class VolleyballCoreBundle extends AbstractResourceBundle
 {
     public static function getSupportedDrivers()
     {

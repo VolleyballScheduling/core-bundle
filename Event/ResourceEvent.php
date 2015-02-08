@@ -1,5 +1,5 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Event;
+namespace Volleyball\Bundle\CoreBundle\Event;
 
 use Symfony\Component\EventDispatcher\GenericEvent;
 

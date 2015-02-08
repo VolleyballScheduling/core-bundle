@@ -1,12 +1,12 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Widget;
+namespace Volleyball\Bundle\CoreBundle\Widget;
 
 use \Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use \Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use \Symfony\Component\DependencyInjection\ContainerInterface;
 use \Doctrine\Common\Collections\ArrayCollection;
 
-class DashboardWidget extends \Volleyball\Bundle\UtilityBundle\Entity\Widget
+class DashboardWidget extends \Volleyball\Bundle\CoreBundle\Entity\Widget
 {
     /**
      * Command

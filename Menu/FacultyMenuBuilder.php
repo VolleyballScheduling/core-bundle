@@ -1,9 +1,9 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Menu;
+namespace Volleyball\Bundle\CoreBundle\Menu;
 
 use Symfony\Component\HttpFoundation\Request;
 
-use Volleyball\Bundle\UtilityBundle\Menu\BaseBuilder;
+use Volleyball\Bundle\CoreBundle\Menu\BaseBuilder;
 
 class FacultyMenuBuilder extends BaseBuilder
 {

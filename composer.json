@@ -1,11 +1,11 @@
 {
-    "name": "volleyball/utility-bundle",
+    "name": "volleyball/core-bundle",
     "type": "library",
-    "description": "utility bundle utilizing the utility component of the volleyball system.",
+    "description": "core bundle utilizing the core component of the volleyball system.",
     "keywords": [
         "scheduling",
         "scheduling system",
-        "utility",
+        "core",
         "carousel",
         "address"
     ],
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Volleyball\\Bundle\\UtilityBundle\\": ""
+            "Volleyball\\Bundle\\CoreBundle\\": ""
         }
     },
     "extra": {

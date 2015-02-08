@@ -1,7 +1,7 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Kernel;
+namespace Volleyball\Bundle\CoreBundle\Kernel;
 
-use \Symfony\Component\HttpKernel\Kernel as BaseKernel;
+use \Symfony\Component\HttpKernehl\Kernel as BaseKernel;
 use \Symfony\Component\Config\Loader\LoaderInterface;
 use \ReflectionClass;
 
@@ -52,7 +52,7 @@ abstract class Kernel extends BaseKernel
             new \Volleyball\Bundle\EnrollmentBundle\VolleyballEnrollmentBundle(),
             new \Volleyball\Bundle\CourseBundle\VolleyballCourseBundle(),
             new \Volleyball\Bundle\ReportBundle\VolleyballReportBundle(),
-            new \Volleyball\Bundle\UtilityBundle\VolleyballUtilityBundle(),
+            new \Volleyball\Bundle\CoreBundle\VolleyballCoreBundle(),
             new \Volleyball\Bundle\FixturesBundle\VolleyballFixturesBundle(),
             new \Volleyball\Bundle\ResourceBundle\VolleyballResourceBundle(),
         );

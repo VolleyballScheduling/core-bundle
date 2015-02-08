@@ -1,6 +1,6 @@
 <?php
-namespace Volleyball\Bundle\UtilityBundle\Repository;
+namespace Volleyball\Bundle\CoreBundle\Repository;
 
-class AddressRepository extends \Volleyball\Bundle\UtilityBundle\Doctrine\ORM\EntityRepository
+class AddressRepository extends \Volleyball\Bundle\CoreBundle\Doctrine\ORM\EntityRepository
 {
 }
