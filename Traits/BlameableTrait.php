@@ -1,52 +1,56 @@
 <?php
 namespace Volleyball\Bundle\CoreBundle\Traits;
 
-use Volleyball\Bundle\UserBundle\Entity\User;
-
 trait BlameableTrait
 {
     /**
-     * @ORM\OneToMany(targetEntity="Volleyball\Bundle\UserBundle\Entity\User", mappedBy="passel")
+     * CreatedBy
+     * @var \Volleyball\Bundle\UserBundle\Entity\User
      */
-    protected $created_by;
+    protected $createdBy;
+    
+    /**
+     * UpdatedBy
+     * @var \Volleyball\Bundle\UserBundle\Entity\User
+     */
+    protected $updatedBy;
 
     /**
-     * @inheritdoc
+     * Get created by
+     * @return \Volleyball\Bundle\UserBundle\Entity\User
      */
     public function getCreatedBy()
     {
-        return $this->created_by;
+        return $this->createdBy;
     }
 
     /**
-     * @inheritdoc
+     * Set created by
+     * @param \Volleyball\Bundle\UserBundle\Entity\User $user
+     * @return mixed
      */
-    public function setCreatedBy(Volleyball\Bundle\UserBundle\Entity\User $user)
+    public function setCreatedBy(\Volleyball\Bundle\UserBundle\Entity\User $user)
     {
-        $this->created_by = $user;
+        $this->createdBy = $user;
 
-        return $user;
+        return this;
     }
 
     /**
-     * Document Update Author
-     * @var Volleyball\Bundle\UserBundle\Document\User
-     * @ORM\OneToMany(targetEntity="Volleyball\Bundle\UserBundle\Entity\User", mappedBy="passel")
-     */
-    protected $updated_by;
-
-    /**
-     * @inheritdoc
+     * Get updated by
+     * @return \Volleyball\Bundle\UserBundle\Entity\User
      */
     public function getUpdatedBy()
     {
-        return $this->updated_by;
+        return $this->updatedBy;
     }
 
     /**
-     * @inheritdoc
+     * Set updated by
+     * @param \Volleyball\Bundle\UserBundle\Entity\User $user
+     * @return mixed
      */
-    public function setUpdatedBy(Volleyball\Bundle\UserBundle\Entity\User $user)
+    public function setUpdatedBy(\Volleyball\Bundle\UserBundle\Entity\User $user)
     {
         $this->updated_by = $user;
 

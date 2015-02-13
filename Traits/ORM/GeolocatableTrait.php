@@ -6,18 +6,14 @@ trait GeolocatableTrait
     /**
      * Latitude
      * @var float
+     * @ORM\Column(type="decimal", scale=3)
      */
-    protected $latitude;
-    
-    /**
-     * Longitude
-     * @var float
-     */
-    protected $longitude;
-    
+    protected $latitude = null;
+
     /**
      * Get latitude
-     * @return float
+     *
+     * @return Float
      */
     public function getLatitude()
     {
@@ -26,8 +22,10 @@ trait GeolocatableTrait
 
     /**
      * Set latitude
-     * @param float $lat
-     * @return mixed
+     *
+     * @param float $lat latitude
+     *
+     * @return self
      */
     public function setLatitude($lat)
     {
@@ -36,10 +34,16 @@ trait GeolocatableTrait
         return $this;
     }
 
-
+    /**
+     * Longitude
+     * @var float
+     * @ORM\Column(type="decimal", scale=3)
+     */
+    protected $longitude = null;
 
     /**
      * Get longitude
+     *
      * @return float
      */
     public function getLongitude()
@@ -49,8 +53,10 @@ trait GeolocatableTrait
 
     /**
      * Set longitude
-     * @param float $lng
-     * @return mixed
+     *
+     * @param float $lng longitude
+     *
+     * @return self
      */
     public function setLongitude($lng)
     {
@@ -61,8 +67,10 @@ trait GeolocatableTrait
 
     /**
      * Get coords
-     * @param boolean $asString
-     * @return array|string
+     *
+     * @param boolean $asString return as string
+     *
+     * return array|string
      */
     public function getCoords($asString = false)
     {
@@ -75,9 +83,11 @@ trait GeolocatableTrait
 
     /**
      * Set coords
-     * @param float|array $lat
-     * @param float|null $lng
-     * @return boolean|mixed
+     *
+     * @param array|float $lat latitude or array or coords
+     * @param float       $lng longitude
+     *
+     * @return self
      */
     public function setCoords($lat, $lng = null)
     {
@@ -93,9 +103,11 @@ trait GeolocatableTrait
     }
 
     /**
-     * Set lat lng
-     * @param array $latlng
-     * @return mixed
+     * Set latitude and longitude
+     *
+     * @param array $latlng latitude and longitude
+     *
+     * @return self
      */
     public function setLatLng($latlng)
     {
@@ -106,8 +118,8 @@ trait GeolocatableTrait
     }
 
     /**
-     * Get lat lng
-     * @return array
+     * @Assert\NotBlank()
+     * @OhAssert\LatLng()
      */
     public function getLatLng()
     {

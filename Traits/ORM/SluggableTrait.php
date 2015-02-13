@@ -4,15 +4,16 @@ namespace Volleyball\Bundle\CoreBundle\Traits;
 trait SluggableTrait
 {
     /**
-     * Slug
-     * @var string
-     */
+    * @Gedmo\Slug(fields={"name"})
+    * @ORM\Column(length=128, unique=true)
+    */
     protected $slug;
 
     /**
      * Set slug
-     * @param string $slug
-     * @return mixed
+     *
+     * @param  string $slug
+     * @return object
      */
     public function setSlug($slug)
     {
@@ -23,6 +24,7 @@ trait SluggableTrait
 
     /**
      * Get slug
+     *
      * @return string
      */
     public function getSlug()

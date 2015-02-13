@@ -4,61 +4,53 @@ namespace Volleyball\Bundle\CoreBundle\Traits;
 trait TimestampableTrait
 {
     /**
-    * @var datetime $created
-    *
-    * @Gedmo\Timestampable(on="create")
-    * @ORM\Column(type="datetime")
-    */
-    protected $created;
-
-    /**
-    * @var datetime $updated
-    *
-    * @Gedmo\Timestampable(on="update")
-    * @ORM\Column(type="datetime")
-    */
-    protected $updated;
-
-    /**
-     * Set created
-     *
-     * @param datetime $created
-     * @return ObjecT
+     * Created at
+     * @var \DateTime
      */
-    public function setCreated($created)
+    protected $createdAt;
+
+    /**
+     * Updated at
+     * @var \DateTime 
+     */
+    protected $updatedAt;
+
+    /**
+     * Set created at
+     * @param \DateTime $createdAt
+     * @return mixed
+     */
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->created = $created;
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get created
-     *
-     * @return datetime
+     * Get created at
+     * @return \DateTime
      */
-    public function getCreated()
+    public function getCreatedAt()
     {
-        return $this->created;
+        return $this->createdAt;
     }
 
     /**
-     * Set updated
-     *
-     * @param datetime $updated
-     * @return ObjecT
+     * Set updated at
+     * @param \DateTime $updatedAt
+     * @return mixed
      */
-    public function setUpdated($updated)
+    public function setUpdatedAt(\DateTime $updatedAt)
     {
-        $this->updated = $updated;
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 
     /**
-     * Get updated
-     *
-     * @return datetime
+     * Get updated at
+     * @return \DateTime
      */
-    public function getUpdated()
+    public function getUpdatedAt()
     {
         return $this->updated;
     }
