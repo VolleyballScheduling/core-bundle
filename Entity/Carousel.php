@@ -1,40 +1,37 @@
 <?php
 namespace Volleyball\Bundle\CoreBundle\Entity;
 
-use \Doctrine\ORM\Mapping as ORM;
-use \Gedmo\Mapping\Annotation as Gedmo;
-use \Symfony\Component\Validator\Constraints as Assert;
 use \Doctrine\Common\Collections\ArrayCollection;
 
-use \Volleyball\Bundle\CoreBundle\Entity\CarouselItem;
-use \Volleyball\Bundle\CoreBundle\Traits\EntityBootstrapTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\SluggableTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\TimestampableTrait;
 
-/**
- * @ORM\Entity(repositoryClass="Volleyball\Bundle\CoreBundle\Repository\CarouselRepository")
- * @ORM\Table(name="carousel")
- */
 class Carousel
 {
-    use EntityBootstrapTrait;
     use SluggableTrait;
     use TimestampableTrait;
     
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "250",
-     *      minMessage = "Name must be at least {{ limit }} characters length",
-     *      maxMessage = "Name cannot be longer than {{ limit }} characters length"
-     * )
+     * Id
+     * @var integer
+     */
+    protected $id;
+    
+    /**
+     * Name
      * @var string
      */
     protected $name;
     
     /**
-     * {@inheritdoc}
+     * Items
+     * @var \Volleyball\Bundle\CoreBundle\Entity\CarouselItem
+     */
+    protected $items;
+    
+    /**
+     * Get name
+     * @return string
      */
     public function getName()
     {
@@ -42,7 +39,9 @@ class Carousel
     }
     
     /**
-     * {@inheritdoc}
+     * Set name
+     * @param string $name
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Carousel
      */
     public function setName($name)
     {
@@ -52,13 +51,8 @@ class Carousel
     }
 
     /**
-     * {@inheritdoc}
-     * @ORM\OneToMany(targetEntity="CarouselItem", mappedBy="carousel")
-     */
-    protected $items;
-
-    /**
-     * {@inheritdoc}
+     * Get items
+     * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function getItems()
     {
@@ -66,7 +60,9 @@ class Carousel
     }
 
     /**
-     * {@inheritdoc}
+     * Set items
+     * @param array $items
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Carousel
      */
     public function setItems(array $items)
     {
@@ -80,18 +76,19 @@ class Carousel
     }
     
     /**
-     * {@inheritdoc}
+     * Add item
+     * @param \Volleyball\Bundle\CoreBundle\Entity\CarouselItem $item
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Carousel
      */
-    public function addItem(\Volleyball\Component\core\Model\CarouselItem $item)
+    public function addItem(\Volleyball\Bundle\CoreBundle\Entity\CarouselItem $item)
     {
-        $this->items[] = $item;
+        $this->items->add($item);
         
         return $this;
     }
 
     /**
      * Has items
-     *
      * @return boolean
      */
     public function hasItems()
@@ -100,7 +97,9 @@ class Carousel
     }
 
     /**
-     * {@inheritdoc}
+     * Get item
+     * @param string $item
+     * @return \Volleyball\Bundle\CoreBundle\Entity\CarouselItem
      */
     public function getItem($item)
     {
@@ -108,13 +107,11 @@ class Carousel
     }
         
     /**
-     * Remove a item
-     *
-     * @param CarouselItem|String $item item
-     *
-     * @return self
+     * Remove item
+     * @param \Volleyball\Bundle\CoreBundle\Entity\CarouselItem $item
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Carousel
      */
-    public function removeItem(CarouselItem $item)
+    public function removeItem(\Volleyball\Bundle\CoreBundle\Entity\CarouselItem $item)
     {
         unset($this->items[$item]);
 

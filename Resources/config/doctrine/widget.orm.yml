@@ -1,0 +1,65 @@
+Volleyball\Bundle\CoreBundle\Entity\Widget:
+    type: entity
+    table: widget
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        label:
+            type: string
+            nullable: true
+        controller:
+            type: string
+        roles:
+            type: array
+        template:
+            type: string
+            nullable: true
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+    indexes:
+        search_idx:
+            columns: slug
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+        label:
+            - Length:
+                min: 0
+                max: 50
+                maxMessage: "Label cannot be longer than {{ limit }} characters length"
+        controller:
+            - Length:
+                min: 2
+                max: 150
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+        template:
+            - Length:
+                min: 2
+                max: 150
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+        

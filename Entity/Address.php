@@ -1,15 +1,9 @@
 <?php
 namespace Volleyball\Bundle\CoreBundle\Entity;
 
-use \Doctrine\ORM\Mapping as ORM;
-use \Gedmo\Mapping\Annotation as Gedmo;
-use \Symfony\Component\Validator\Constraints as Assert;
-
-use \Volleyball\Bundle\CoreBundle\Traits\EntityBootstrapTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\SluggableTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\GeolocatableTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\TimestampableTrait;
-use \Volleyball\Bundle\CoreBundle\Repository\AddressRepository;
 
 /**
 * @ORM\Entity(repositoryClass="AddressRepository")
@@ -17,25 +11,76 @@ use \Volleyball\Bundle\CoreBundle\Repository\AddressRepository;
 */
 class Address
 {
-    use EntityBootstrapTrait;
     use GeolocatableTrait;
     use TimestampableTrait;
     use SluggableTrait;
     
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "250",
-     *      minMessage = "Name must be at least {{ limit }} characters length",
-     *      maxMessage = "Name cannot be longer than {{ limit }} characters length"
-     * )
+     * Id
+     * @var integer
+     */
+    protected $id;
+    
+    /**
+     * Name
      * @var string
      */
     protected $name;
     
     /**
-     * {@inheritdoc}
+     * Street
+     * @var string
+     */
+    protected $street;
+    
+    /**
+     * Suburb
+     * @var string
+     */
+    protected $suburb;
+    
+    /**
+     * City
+     * @var string
+     */
+    protected $city;
+    
+    /**
+     * Zone
+     * @var string
+     */
+    protected $zone;
+    
+    /**
+     * Country
+     * @var string
+     */
+    protected $country;
+    
+    /**
+     * PostalCode
+     * @var string
+     */
+    protected $postalCode;
+    
+    /**
+     * User
+     * @var \Volleyball\Bundle\UserBundle\Entity\User
+     */
+    protected $user;
+    
+    /**
+     * Get id
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Get name
+     * @return string
      */
     public function getName()
     {
@@ -43,7 +88,9 @@ class Address
     }
     
     /**
-     * {@inheritdoc}
+     * Set name
+     * @param string $name
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
      */
     public function setName($name)
     {
@@ -53,13 +100,7 @@ class Address
     }
 
     /**
-    * @ORM\Column(type="string", length=150)
-    */
-    protected $street = '';
-
-    /**
     * Get street
-    *
     * @return string
     */
     public function getStreet()
@@ -68,41 +109,31 @@ class Address
     }
 
     /**
-    * Set street
-    *
-    * @param string $street
-    *
-    * @return Address
-    */
+     * Set streets
+     * @param string $street
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setStreet($street)
     {
         $this->street = $street;
 
         return $this;
     }
-
+    
     /**
-    * @ORM\Column(type="string", length=150, nullable=true)
-    */
-    protected $suburb = '';
-
-    /**
-    * Get suburb
-    *
-    * @return string
-    */
+     * Get suburb
+     * @return string
+     */
     public function getSuburb()
     {
         return $this->suburb;
     }
 
     /**
-    * Set suburb
-    *
-    * @param string $suburb
-    *
-    * @return Address
-    */
+     * Set suburb
+     * @param string $suburb
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setSuburb($suburb)
     {
         $this->suburb = $suburb;
@@ -111,27 +142,19 @@ class Address
     }
 
     /**
-    * @ORM\Column(type="string", length=150)
-    */
-    protected $city = '';
-
-    /**
-    * Get city
-    *
-    * @return string
-    */
+     * Get city
+     * @return strings
+     */
     public function getCity()
     {
         return $this->city;
     }
 
     /**
-    * Set city
-    *
-    * @param string $city
-    *
-    * @return Address
-    */
+     * Set city
+     * @param string $city
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setCity($city)
     {
         $this->city = $city;
@@ -139,14 +162,8 @@ class Address
         return $this;
     }
 
-    /**
-    * @ORM\Column(type="string", length=150)
-    */
-    protected $zone = '';
-
-    /**
+   /**
     * Get zone
-    *
     * @return string
     */
     public function getZone()
@@ -155,12 +172,10 @@ class Address
     }
 
     /**
-    * Set zone
-    *
-    * @param string $zone
-    *
-    * @return Address
-    */
+     * Set zone
+     * @param string $zone
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setZone($zone)
     {
         $this->zone = $zone;
@@ -169,27 +184,19 @@ class Address
     }
 
     /**
-    * @ORM\Column(type="string", length=250)
-    */
-    protected $country = 'United States';
-
-    /**
-    * Get country
-    *
-    * @return string
-    */
+     * Get country
+     * @return string
+     */
     public function getCountry()
     {
         return $this->country;
     }
 
     /**
-    * Set country
-    *
-    * @param string $country
-    *
-    * @return Address
-    */
+     * Set country
+     * @param string $country
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setCountry($country)
     {
         $this->country = $country;
@@ -198,27 +205,19 @@ class Address
     }
 
     /**
-    * @ORM\Column(type="string", length=10, nullable=true)
-    */
-    protected $postalCode = '';
-
-    /**
-    * Get postal code
-    *
-    * @return string
-    */
+     * Get postal code
+     * @return string
+     */
     public function getPostalCode()
     {
         return $this->postalCode;
     }
 
     /**
-    * Set postal code
-    *
-    * @param string $postalCode
-    *
-    * @return Address
-    */
+     * Set postal code
+     * @param string $postalCode
+     * @return \Volleyball\Bundle\CoreBundle\Entity\Address
+     */
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
@@ -227,11 +226,9 @@ class Address
     }
 
     /**
-     * Formats an address in an array form
-     *
-     * @param array  $address The address array (required keys: firstname, lastname, address1, postcode, city, country_code)
-     * @param string $sep     The address separator
-     *
+     * Format address
+     * @param array $address
+     * @param string $sep
      * @return string
      */
     public static function formatAddress(array $address, $sep = ", ")

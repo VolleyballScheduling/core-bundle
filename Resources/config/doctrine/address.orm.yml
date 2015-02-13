@@ -1,0 +1,93 @@
+Volleyball\Bundle\CoreBundle\Entity\Address:
+    type: entity
+    table: address
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        street:
+            type: string
+        suburb:
+            type: string
+            nullable: true
+        city:
+            type: string
+        zone:
+            type: string
+        country:
+            type: string
+        postalCode:
+            type: string
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+    manyToOne:
+        user:
+            targetEntity: Volleyball\Bundle\UserBundle\Entity\User
+            inversedBy: address
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    indexes:
+        search_idx:
+            columns: slug
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 50
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+        street:
+            - Length:
+                min: 2
+                max: 150
+                minMessage: "Street must be at least {{ limit }} characters length"
+                maxMessage: "Street cannot be longer than {{ limit }} characters length"
+        suburb:
+            - Length:
+                min: 0
+                max: 150
+                maxMessage: "Suburb cannot be longer than {{ limit }} characters length"
+        city:
+            - Length:
+                min: 2
+                max: 150
+                minMessage: "City must be at least {{ limit }} characters length"
+                maxMessage: "City cannot be longer than {{ limit }} characters length"
+        zone:
+            - Length:
+                min: 2
+                max: 150
+                minMessage: "Zone must be at least {{ limit }} characters length"
+                maxMessage: "Zone cannot be longer than {{ limit }} characters length"
+        country:
+            - Length:
+                min: 2
+                max: 250
+                minMessage: "Country must be at least {{ limit }} characters length"
+                maxMessage: "Country cannot be longer than {{ limit }} characters length"
+        postalCode:
+            - Length:
+                min: 2
+                max: 20
+                minMessage: "Postal code must be at least {{ limit }} characters length"
+                maxMessage: "Postal code cannot be longer than {{ limit }} characters length"
+        

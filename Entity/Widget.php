@@ -1,58 +1,49 @@
 <?php
 namespace Volleyball\Bundle\CoreBundle\Entity;
 
-use \Doctrine\ORM\Mapping as ORM;
-use \Gedmo\Mapping\Annotation as Gedmo;
-use \Symfony\Component\Validator\Constraints as Assert;
 use \Doctrine\Common\Collections\ArrayCollection;
 
-use \Volleyball\Bundle\CoreBundle\Traits\EntityBootstrapTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\SluggableTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\TimestampableTrait;
 
-/**
-* @ORM\Entity(repositoryClass="Volleyball\Bundle\CoreBundle\Repository\WidgetRepository")
-* @ORM\Table(name="widget")
-*/
 class Widget
 {
-    use EntityBootstrapTrait;
     use SluggableTrait;
     use TimestampableTrait;
     
-     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "250",
-     *      minMessage = "Name must be at least {{ limit }} characters length",
-     *      maxMessage = "Name cannot be longer than {{ limit }} characters length"
-     * )
-     * @var string
+    /**
+     * Id
+     * @var integer
      */
+    protected $id;
+    
+     /**
+      * name
+      * @var string
+      */
     protected $name;
     
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * Label
      * @var string
      */
     protected $label;
     
     /**
-     * @ORM\Column(type="string")
+     * Controller
      * @var string
      */
     protected $controller;
     
     /**
-     * @ORM\Column(type="array", nullable=true)
-     * @var string
+     * Roles
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     protected $roles;
     
     /**
-     * @ORM\Column(type="string", nullable=true)
-     * @var string
+     * Template
+     * @var string 
      */
     protected $template;
     
@@ -68,7 +59,6 @@ class Widget
     
     /**
      * Get name
-     * @var string
      * @return string
      */
     public function getName()
@@ -153,9 +143,15 @@ class Widget
      * @param array $roles
      * @return \Volleyball\Bundle\CoreBundle\Entity\Widget
      */
-    public function setRoles(array $roles)
+    public function setRoles(array $roles, $overwrite = true)
     {
-        $this->roles = $roles;
+        if ($overwrite) {
+            $this->roles = $roles;
+        } else {
+            foreach ($roles as $role) {
+                $this->roles->add($role);
+            }
+        }
         
         return $this;
     }

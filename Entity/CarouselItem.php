@@ -1,70 +1,43 @@
 <?php
 namespace Volleyball\Bundle\CoreBundle\Entity;
 
-use \Doctrine\ORM\Mapping as ORM;
-use \Gedmo\Mapping\Annotation as Gedmo;
-use \Symfony\Component\Validator\Constraints as Assert;
 use \Doctrine\Common\Collections\ArrayCollection;
 
-use \Volleyball\Bundle\CoreBundle\Traits\EntityBootstrapTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\SluggableTrait;
 use \Volleyball\Bundle\CoreBundle\Traits\TimestampableTrait;
 
-/**
-* @ORM\Entity(repositoryClass="Volleyball\Bundle\CoreBundle\Repository\CarouselItemRepository")
-* @ORM\Table(name="carousel_item")
-*/
 class CarouselItem
 {
-    use EntityBootstrapTrait;
     use SluggableTrait;
     use TimestampableTrait;
     
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "250",
-     *      minMessage = "Name must be at least {{ limit }} characters length",
-     *      maxMessage = "Name cannot be longer than {{ limit }} characters length"
-     * )
+     * Name
      * @var string
      */
     protected $name;
     
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "30",
-     *      minMessage = "Caption must be at least {{ limit }} characters length",
-     *      maxMessage = "Caption cannot be longer than {{ limit }} characters length"
-     * )
+     * Caption
      * @var string
      */
     protected $caption;
     
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Url()
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "30",
-     *      minMessage = "Caption must be at least {{ limit }} characters length",
-     *      maxMessage = "Caption cannot be longer than {{ limit }} characters length"
-     * )
+     * Image
      * @var string
      */
     protected $image;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Volleyball\Bundle\CoreBundle\Entity\Carousel", inversedBy="carousel_items")
-     * @ORM\JoinColumn(name="carousel_id", referencedColumnName="id")
+     * Carousel
+     * @var \Volleyball\Bundle\CoreBundle\Entity\Carousel 
      */
     protected $carousel;
     
     /**
-     * {@inheritdoc}
+     * Get name
+     * @return string
      */
     public function getName()
     {
@@ -72,7 +45,9 @@ class CarouselItem
     }
     
     /**
-     * {@inheritdoc}
+     * Set name
+     * @param string $name
+     * @return \Volleyball\Bundle\CoreBundle\Entity\CarouselItem
      */
     public function setName($name)
     {
@@ -83,7 +58,6 @@ class CarouselItem
 
     /**
      * Get caption
-     * 
      * @return string
      */
     public function getCaption()
@@ -93,10 +67,8 @@ class CarouselItem
 
     /**
      * Set caption
-     * 
-     * @param string $caption caption
-     * 
-     * @return CarouselItem
+     * @param string $caption
+     * @return \Volleyball\Bundle\CoreBundle\Entity\CarouselItem
      */
     public function setCaption($caption)
     {
@@ -107,7 +79,6 @@ class CarouselItem
 
     /**
      * Get image
-     * 
      * @return string
      */
     public function getImage()
@@ -116,11 +87,9 @@ class CarouselItem
     }
 
     /**
-     * Set image url
-     * 
-     * @param string $image url
-     * 
-     * @return string
+     * Set image
+     * @param string $image
+     * @return \Volleyball\Bundle\CoreBundle\Entity\CarouselItem
      */
     public function setImage($image)
     {

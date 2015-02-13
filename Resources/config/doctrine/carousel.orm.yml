@@ -1,0 +1,103 @@
+Volleyball\Bundle\CoreBundle\Entity\Carousel:
+    type: entity
+    table: carousel
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedBy:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+    oneToMany:
+        items:
+            targetEntity: Volleyball\Bundle\CoreBundle\Entity\CarouselItem
+            mappedBy: carousel
+    indexes:
+        search_idx:
+            columns: slug
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 250
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+Volleyball\Bundle\CoreBundle\Entity\CaouselItem:
+    type: entity
+    table: carousel_item
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        caption:
+            type: string
+        image:
+            type: string
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+    manyToOne:
+        carousel:
+            targetEntity: Volleyball\Bundle\CoreBundle\Entity\Carousel
+            inversedBy: carousel_item
+            joinColumn:
+                name: carousel_id
+                referencedColumnName: id
+    indexes:
+        search_idx:
+            columns: slug
+    properties:
+        name:
+            - Length:
+                min: 2
+                max: 250
+                minMessage: "Name must be at least {{ limit }} characters length"
+                maxMessage: "Name cannot be longer than {{ limit }} characters length"
+        caption:
+            - Length:
+                min: 2
+                max: 30
+                minMessage: "Caption must be at least {{ limit }} characters length"
+                maxMessage: "Caption cannot be longer than {{ limit }} characters length"
+        image:
+            - Length:
+                min: 2
+                max: 250
+                minMessage: "Image must be at least {{ limit }} characters length"
+                maxMessage: "Image cannot be longer than {{ limit }} characters length"
+            - Url: ~
+        
